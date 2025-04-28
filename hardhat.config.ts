@@ -95,16 +95,6 @@ export default {
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,
-    customChains: [
-      {
-        network: "unichain",
-        chainId: 130,
-        urls: {
-          apiURL: "https://api.unichain.world/api",
-          browserURL: "https://explorer.unichain.world",
-        },
-      },
-    ],
   },
   solidity: {
     compilers: [DEFAULT_COMPILER_SETTINGS],
@@ -124,6 +114,3 @@ export default {
     },
   },
 }
-
-console.log('INFURA_API_KEY:', process.env.INFURA_API_KEY);
-console.log('ETHERSCAN_API_KEY:', process.env.ETHERSCAN_API_KEY);
