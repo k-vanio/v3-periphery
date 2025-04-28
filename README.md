@@ -50,3 +50,18 @@ contract MyContract {
 }
 
 ```
+# run deployments
+`npx hardhat run scripts/deploy.js --network unichain`
+`npx hardhat verify --network unichain 0xd31E9aF251aBE7e990e0a1342F5C0c24ee62C653 0x1f98400000000000000000000000000000000003 0x4200000000000000000000000000000000000006`
+
+
+## Deployments SwapRouter BASE
+0x971247f4080F4b9E5319c03EfB081E3B21fc004C
+## Deployments SwapRouter Arbitrum
+0xE592427A0AEce92De3Edee1F18E0157C05861564
+## Deployments SwapRouter Unichain
+0xd31E9aF251aBE7e990e0a1342F5C0c24ee62C653
+
+
+
+

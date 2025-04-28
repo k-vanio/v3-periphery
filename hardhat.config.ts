@@ -4,6 +4,10 @@ import '@nomiclabs/hardhat-waffle'
 import 'hardhat-typechain'
 import 'hardhat-watcher'
 
+import dotenv from 'dotenv';
+dotenv.config();
+
+
 const LOW_OPTIMIZER_COMPILER_SETTINGS = {
   version: '0.7.6',
   settings: {
@@ -78,11 +82,29 @@ export default {
     optimism: {
       url: `https://optimism-mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,
     },
+    base: {
+      url: `https://base-mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,
+      chainId: 8453,
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+    },
+    unichain: {
+      url: `https://unichain-mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,
+      chainId: 130,
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+    },
   },
   etherscan: {
-    // Your API key for Etherscan
-    // Obtain one at https://etherscan.io/
     apiKey: process.env.ETHERSCAN_API_KEY,
+    customChains: [
+      {
+        network: "unichain",
+        chainId: 130,
+        urls: {
+          apiURL: "https://api.unichain.world/api",
+          browserURL: "https://explorer.unichain.world",
+        },
+      },
+    ],
   },
   solidity: {
     compilers: [DEFAULT_COMPILER_SETTINGS],
@@ -102,3 +124,6 @@ export default {
     },
   },
 }
+
+console.log('INFURA_API_KEY:', process.env.INFURA_API_KEY);
+console.log('ETHERSCAN_API_KEY:', process.env.ETHERSCAN_API_KEY);
